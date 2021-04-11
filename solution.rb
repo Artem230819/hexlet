@@ -1,5 +1,22 @@
-a = -4
-b = 3
-solution1 = a**b
-solution2 = b/a.to_f
-solution3 = a.abs+b
+str = 'i like ruby'
+
+# BEGIN (write your solution here)
+solution1 = str.reverse
+# END
+
+assert { solution1 == 'ybur ekil i' }
+
+solution2 = ''
+solution2 << 'i '
+# BEGIN (write your solution here)
+solution2 << 'like '
+solution2 << 'ruby'
+# END
+
+assert { solution2 == str }
+
+# BEGIN (write your solution here)
+solution3 = "yes, #{str}"
+# END
+
+assert { solution3 == "yes, i like ruby" }
