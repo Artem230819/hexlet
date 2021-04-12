@@ -1,30 +1,18 @@
-require 'wrong/assert'
-include Wrong::Assert
-
-def result(a, b, c, d)
+def product(num1, num2, func)
   # BEGIN (write your solution here)
-  if a == c && b == d
+  return num1 if num1 == num2
 
-    2
-
-  elsif a > b && c > d || a < b && c < d || a == b && c == d
-
-    1
-
-  else
-
-    0
-
-  end
+  return func.call(product(num1, num2 - 1, func), num2)
   # END
 end
 
-assert { 1 == result(1, 2, 1, 3) }
-assert { 1 == result(2, 1, 3, 1) }
-assert { 1 == result(1, 1, 2, 2) }
-assert { 0 == result(2, 2, 1, 2) }
-assert { 0 == result(2, 2, 3, 2) }
-assert { 0 == result(1, 2, 3, 2) }
-assert { 2 == result(0, 0, 0, 0) }
-assert { 2 == result(1, 2, 1, 2) }
-assert { 2 == result(4, 2, 4, 2) }
+sum = -> (num1, num2) { return num1 + num2 }
+assert { 1 == product(1, 1, sum) }
+assert { 3 == product(1, 2, sum) }
+
+multi = -> (num1, num2) { return num1 * num2 }
+assert { 6 == product(1, 3, multi) }
+assert { 24 == product(2, 4, multi) }
+
+pow = -> (num1, num2) { return num1 ** num2 }
+assert { 4096 == product(2, 4, pow) }
