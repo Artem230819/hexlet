@@ -12,7 +12,7 @@ result(1, 2, 1, 3)
 result(2, 1, 3, 1)
 
 result(1, 1, 2, 2)
-
+puts
 result(2, 2, 1, 2)
 result(2, 2, 3, 2)
 result(1, 2, 3, 2)
